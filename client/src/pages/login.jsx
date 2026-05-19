@@ -229,18 +229,6 @@ hover:bg-gray-100 dark:hover:bg-gray-800
                       'Login'
                     )}
                   </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    className="
-w-full text-base font-semibold 
-border-gray-300 dark:border-gray-600
-text-gray-800 dark:text-gray-200
-hover:bg-gray-100 dark:hover:bg-gray-800
-"
-                  >
-                    Login with Google
-                  </Button>
                 </CardFooter>
               </form>
             </CardContent>

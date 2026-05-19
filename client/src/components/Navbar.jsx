@@ -66,7 +66,7 @@ export function DropdownMenuAvatar() {
 
       <DropdownMenuContent
         align="end"
-        className="w-52 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
+        className="w-52 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white"
       >
         {user?.role === 'admin' ? (
           <>
