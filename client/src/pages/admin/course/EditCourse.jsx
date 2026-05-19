@@ -259,7 +259,21 @@ const EditCourse = () => {
                   <SelectValue placeholder="Choose category" />
                 </SelectTrigger>
 
-                <SelectContent>
+                <SelectContent
+                  position="popper"
+                  sideOffset={8}
+                  className="
+    z-[9999]
+    max-h-72
+    overflow-y-auto
+    rounded-2xl
+    border border-slate-200
+    bg-white
+    shadow-2xl
+    dark:bg-slate-900
+    dark:border-slate-700
+  "
+                >
                   <SelectGroup>
                     <SelectLabel>Categories</SelectLabel>
 
@@ -282,7 +296,21 @@ const EditCourse = () => {
                   <SelectValue placeholder="Choose level" />
                 </SelectTrigger>
 
-                <SelectContent>
+                <SelectContent
+                  position="popper"
+                  sideOffset={8}
+                  className="
+    z-[9999]
+    max-h-60
+    overflow-y-auto
+    rounded-2xl
+    border border-slate-200
+    bg-white
+    shadow-2xl
+    dark:bg-slate-900
+    dark:border-slate-700
+  "
+                >
                   <SelectGroup>
                     <SelectLabel>Levels</SelectLabel>
 

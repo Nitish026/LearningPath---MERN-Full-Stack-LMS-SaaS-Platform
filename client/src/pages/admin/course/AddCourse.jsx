@@ -117,14 +117,17 @@ const AddCourse = () => {
                 </SelectTrigger>
 
                 <SelectContent
+                  position="popper"
+                  sideOffset={8}
                   className="
-    bg-white/95
-    backdrop-blur-md
-    border border-slate-200
-    shadow-2xl
+    z-[9999]
+    max-h-72
+    overflow-y-auto
     rounded-2xl
-    z-50
-    dark:bg-slate-900/95
+    border border-slate-200
+    bg-white
+    shadow-2xl
+    dark:bg-slate-900
     dark:border-slate-700
   "
                 >
@@ -164,7 +167,22 @@ const AddCourse = () => {
                   <SelectValue placeholder="Choose course level" />
                 </SelectTrigger>
 
-                <SelectContent className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl">
+                <SelectContent
+                  position="popper"
+                  sideOffset={8}
+                  className="
+    z-[9999]
+    max-h-60
+    overflow-y-auto
+    rounded-2xl
+    border border-slate-200
+    bg-white
+    shadow-2xl
+    dark:bg-slate-900
+    dark:border-slate-700
+  "
+                >
+                  {' '}
                   <SelectGroup>
                     <SelectLabel>Levels</SelectLabel>
 
