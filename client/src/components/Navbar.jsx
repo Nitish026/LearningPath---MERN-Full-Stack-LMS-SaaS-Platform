@@ -221,6 +221,9 @@ const MobileNavbar = () => {
     }
   };
 
+  const navButtonClass =
+    'text-left text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition font-medium';
+
   return (
     <>
       <button onClick={() => setOpen(true)}>
@@ -229,13 +232,13 @@ const MobileNavbar = () => {
 
       {open && (
         <div
-          className="fixed inset-0 bg-black/50 z-40"
+          className="fixed inset-0 bg-black/50 z-50"
           onClick={() => setOpen(false)}
         />
       )}
 
       <div
-        className={`fixed top-0 left-0 h-full w-72 bg-white dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800 z-50 transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full w-72 bg-white dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800 z-[60] transition-transform duration-300 ${
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -245,29 +248,70 @@ const MobileNavbar = () => {
         </div>
 
         <div className="flex flex-col p-6 gap-5">
-          <button onClick={() => handleNav('/')}>Home</button>
-          <button onClick={() => handleNav('/courses')}>Courses</button>
-          <button onClick={() => handleNav('/about')}>About</button>
-          <button onClick={() => handleNav('/contact')}>Contact</button>
+          <button onClick={() => handleNav('/')} className={navButtonClass}>
+            Home
+          </button>
+
+          <button
+            onClick={() => handleNav('/courses')}
+            className={navButtonClass}
+          >
+            Courses
+          </button>
+
+          <button
+            onClick={() => handleNav('/about')}
+            className={navButtonClass}
+          >
+            About
+          </button>
+
+          <button
+            onClick={() => handleNav('/contact')}
+            className={navButtonClass}
+          >
+            Contact
+          </button>
 
           {isAuthenticated && user?.role === 'student' && (
             <>
-              <button onClick={() => handleNav('/dashboard')}>Dashboard</button>
+              <button
+                onClick={() => handleNav('/dashboard')}
+                className={navButtonClass}
+              >
+                Dashboard
+              </button>
 
-              <button onClick={() => handleNav('/dashboard/my-courses')}>
+              <button
+                onClick={() => handleNav('/dashboard/my-courses')}
+                className={navButtonClass}
+              >
                 My Learning
               </button>
             </>
           )}
 
           {isAuthenticated && user?.role === 'admin' && (
-            <button onClick={() => handleNav('/admin')}>Admin Panel</button>
+            <button
+              onClick={() => handleNav('/admin')}
+              className={navButtonClass}
+            >
+              Admin Panel
+            </button>
           )}
 
           {!isAuthenticated ? (
-            <button onClick={() => handleNav('/login')}>Login</button>
+            <button
+              onClick={() => handleNav('/login')}
+              className={navButtonClass}
+            >
+              Login
+            </button>
           ) : (
-            <button onClick={mobileLogoutHandler} className="text-red-500">
+            <button
+              onClick={mobileLogoutHandler}
+              className="text-left text-red-500 hover:text-red-600 font-medium"
+            >
               Sign Out
             </button>
           )}
