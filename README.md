@@ -87,27 +87,17 @@ Business Logic Layer
     ↓
 MongoDB Database
 
-lms-project/
-│
-├── client/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── routes/
-│   │   ├── context/
-│   │   ├── services/
-│   │   └── App.js
-│
-├── server/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   ├── config/
-│   └── server.js
-│
-└── README.md
-
+```bash
+Frontend (React)
+    ↓
+REST API (Express.js)
+    ↓
+Authentication Middleware (JWT)
+    ↓
+Business Logic Layer
+    ↓
+MongoDB Database
+```
 Installation
 
 Clone Repository
