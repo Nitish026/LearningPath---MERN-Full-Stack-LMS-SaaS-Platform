@@ -49,7 +49,7 @@ const CourseCard = ({ course }) => {
 
         {/* CTA */}
         <button
-          className="w-full mt-5 bg-blue-600 text-white py-3 rounded-2xl font-semibold hover:bg-blue-700 transition"
+          className="w-full mt-5 bg-red-600 text-white py-3 rounded-2xl font-semibold hover:bg-blue-700 transition"
           onClick={handleClick}
         >
           View Course

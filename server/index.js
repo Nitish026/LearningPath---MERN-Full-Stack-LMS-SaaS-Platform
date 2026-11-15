@@ -18,28 +18,30 @@ const PORT = process.env.PORT || 3000;
 // Default Middleware
 app.use(express.json());
 app.use(cookieParser());
-const allowedOrigins = ['http://localhost:5173', process.env.FRONTEND_URL];
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('CORS blocked'));
-      }
-    },
-    credentials: true,
-  }),
-);
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://learning-path-mern-full-stack-lms-s.vercel.app',
+  process.env.FRONTEND_URL,
+]
+  .filter(Boolean)
+  .map((origin) => origin.trim().replace(/\/$/, ''));
 
-// app.use((req, res, next) => {
-//   if (req.url.includes('/profile')) {
-//     console.log('PROFILE REQUEST:', req.url);
-//   }
-//   next();
-// });
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
 
+    console.error('CORS blocked origin:', origin);
+    return callback(new Error(`CORS blocked: ${origin}`));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
 app.use('/api/v1/users', UserRouter);
 app.use('/api/v1/course', CourseRouter);
 app.use('/api/v1/lecture', LectureRouter);

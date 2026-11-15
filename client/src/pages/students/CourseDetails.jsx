@@ -264,7 +264,18 @@ const CourseDetails = () => {
                 {course.lectures.map((lecture) => (
                   <div
                     key={lecture._id}
-                    className="rounded-3xl border border-slate-200 p-6 hover:shadow-md transition bg-slate-50"
+                    onClick={() => {
+                      if (lecture.isPreviewFree || isEnrolled) {
+                        navigate(`/learn/${id}`);
+                      } else {
+                        toast.info('Join this program to access this lecture.');
+                      }
+                    }}
+                    className={`rounded-3xl border border-slate-200 p-6 transition bg-slate-50 ${
+                      lecture.isPreviewFree || isEnrolled
+                        ? 'cursor-pointer hover:shadow-md hover:border-blue-400'
+                        : 'cursor-not-allowed opacity-75'
+                    }`}
                   >
                     <div className="flex items-start justify-between gap-6">
                       <div className="flex gap-4">
